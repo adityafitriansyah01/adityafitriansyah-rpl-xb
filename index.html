@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Food Ordering</h1>
+      <form action="orderForm">
+        <div>
+          <label for="food"></label>
+          <select id="food">
+            \
+
+            <option value="e">~~~~~Select Food~~~~~</option>
+            <option value="50">Seblak - 20000</option>
+            <option value="100">Cilok - 10000</option>
+            <option value="20">Nasi Goreng - 15000</option>
+          </select>
+        </div>
+        <div>
+          <label for="drink"></label>
+          <select id="drink">
+            <option value="e">~~~~~Select Drink~~~~~</option>
+            <option value="500">Es Teh - 5000</option>
+            <option value="100">Es Dawet - 8000</option>
+            <option value="20">Jus Buah - 10000</option>
+          </select>
+        </div>
+        <button type="button" id="orderButton">Order</button>
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      document.getElementById("orderButton").onclick = function () {
+        const foodPrice = parseInt(document.getElementById("food").value);
+        const drinkPrice = parseInt(document.getElementById("drink").value);
+
+        let totalPrice = foodPrice + drinkPrice;
+        let discount = 0;
+
+        if (totalPrice > 50.0) {
+          (discount = totalPrice * 0), 1;
+          totalPrice -= discount; // totalPrice = totalPrice - discount
+        }
+        const resultDiv = document.getElementById("result");
+
+        if (totalPrice > 0) {
+          resultDiv.innerHTML = `
+                total: Rp${totalPrice}<br>
+                Discount :Rp${discount.toFixed(2)}<br>
+                Final Price : Rp${totalPrice.toFixed(2)} `;
+        } else {
+          resultDiv.innerHTML = "select the black one nigga!!!";
+        }
+      };
+    </script>
+  </body>
+</html>
